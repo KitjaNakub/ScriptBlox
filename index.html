@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptRo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        
+        <h1>ScriptRo</h1>
+        <input type="text" id="search" placeholder="ค้นหา">
+        <select id="category-filter">
+            <option value="all">All</option>
+            <option value="Fisch">Fisch</option>
+            <option value="Bloxfruit">Bloxfruit</option>
+            <option value="Executor">Executor</option>
+            <option value="other">other</option>
+        </select>
+        <p id="userCount">จำนวน: 0</p>
+        <button id="add-script-button">Add Script</button>
+        <a href="admin.html"></a>
+    </header>
+
+    <main>
+        <section id="script-list"></section>
+
+    </main>
+
+    <!-- Add Script Form (hidden initially) -->
+    <div id="add-script-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2>Add a New Script</h2>
+            <form id="add-script-form">
+                <input type="text" id="script-title" placeholder="Script Title" required>
+                <textarea id="script-description" placeholder="Script Description" required></textarea>
+                <textarea id="script-code" placeholder="Script Code" required></textarea>
+                <select id="script-category" required>
+                    <option value="">Select Category</option>
+                    <option value="Fisch">Fisch</option>
+                    <option value="Bloxfruit">Bloxfruit</option>
+                    <option value="Executor">Executor</option>
+                    <option value="other">other</option>
+                </select>
+                <button type="submit">Add Script</button>
+            </form>
+        </div>
+    </div>
+
+  
+</div>
+
+
+
+<section id="feedback-section">
+    <h2>Send Your Feedback</h2>
+    <form id="feedback-form">
+        <textarea id="feedback-text" placeholder="Enter your feedback" required></textarea>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</section>
+
+    <script src="script.js"></script>
+
+  
+
+</body>
+</html>

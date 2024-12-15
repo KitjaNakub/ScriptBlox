@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <a href="index.html">Back to Home</a>
+        <button id="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <section id="admin-scripts">
+            <h2>Manage Scripts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-script-list">
+                    <!-- Scripts will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add Script Form -->
+        <section id="add-script-section">
+            <h2>Add a New Script</h2>
+            <form id="add-script-form">
+                <input type="text" id="script-title" placeholder="Script Title" required>
+                <textarea id="script-description" placeholder="Script Description" required></textarea>
+                <textarea id="script-code" placeholder="Script Code" required></textarea>
+                <select id="script-category" required>
+                    <option value="Fisch">Fisch</option>
+                    <option value="Bloxfruit">Bloxfruit</option>
+                    <option value="Executor">Executor</option>
+                    <option value="other">other</option>
+                </select>
+                <button type="submit">Add Script</button>
+            </form>
+        </section>
+
+        <!-- Edit Script Modal -->
+        <div id="edit-script-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-edit-modal" class="close">&times;</span>
+                <h2>Edit Script</h2>
+                <form id="edit-script-form">
+                    <input type="hidden" id="edit-script-id">
+                    <input type="text" id="edit-script-title" placeholder="Script Title" required>
+                    <textarea id="edit-script-description" placeholder="Script Description" required></textarea>
+                    <textarea id="edit-script-code" placeholder="Script Code" required></textarea>
+                    
+                    <select id="edit-script-category" required>
+                        <option value="Fisch">Fisch</option>
+                        <option value="Bloxfruit">Bloxfruit</option>
+                        <option value="Executor">Executor</option>
+                        <option value="other">other</option>
+                    </select>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+    <script>
+        // ตรวจสอบสิทธิ์การเข้าถึง
+        document.addEventListener('DOMContentLoaded', () => {
+            const isAdmin = localStorage.getItem('isAdmin');
+            if (isAdmin !== 'true') {
+                alert('Access Denied! Please login first.');
+                window.location.href = 'login.html'; // เปลี่ยนกลับไปหน้าล็อกอิน
+            }
+        });
+    </script>
+    
+    <main>
+        <section id="feedback-section">
+            <h2>User Feedback</h2>
+            <div id="feedback-list"></div>
+    
+            <!-- ปุ่มเปลี่ยนหน้า -->
+            <div id="pagination-controls">
+                <button id="prev-page-btn" disabled>Previous</button>
+                <span id="current-page">Page 1</span>
+                <button id="next-page-btn">Next</button>
+            </div>
+        </section>
+    </main>
+
+    
+</body>
+</html>

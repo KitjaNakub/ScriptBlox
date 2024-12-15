@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Login</h1>
+    </header>
+
+    <main>
+        <form id="login-form">
+            <input type="password" id="admin-password" placeholder="Enter Admin Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <div class="copy-container">
+        <p id="text-to-copy">ข้อความที่ต้องการคัดลอก</p>
+        <button class="copy-btn" onclick="copyToClipboard('text-to-copy')">คัดลอกข้อความ</button>
+    </div>
+
+    <div class="copy-container">
+        <p id="description-to-copy">คำอธิบายข้อความนี้</p>
+        <button class="copy-btn" onclick="copyToClipboard('description-to-copy')">คัดลอกคำอธิบาย</button>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('admin-password').value;
+
+            // ตรวจสอบรหัสผ่าน (ตั้งรหัสผ่านแอดมินไว้ เช่น 'admin123')
+            if (password === 'kitjap5rr') {
+                // บันทึกสถานะล็อกอินใน LocalStorage
+                localStorage.setItem('isAdmin', 'true');
+                alert('Login Successful!');
+                window.location.href = 'admin.html'; // เปลี่ยนไปที่หน้า Admin
+            } else {
+                alert('Invalid Password!');
+            }
+        });
+    </script>
+    
+</body>
+</html>
